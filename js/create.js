@@ -28,7 +28,12 @@ formulario.addEventListener('submit', function(e){
 
         localStorage.setItem('vinyls', JSON.stringify(vinyls));
 
-        window.location.href = 'list.html'
+        alert('Se agrego vinilo!');
+
+        setTimeout(() => {
+            window.location.href = 'list.html';
+        }, 3000);
+        
     }
 
     reader.readAsDataURL(image.files[0]);
