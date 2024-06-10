@@ -1,0 +1,185 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: #D9D9D9;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 140rem;
+    margin: 0 auto;
+}
+
+.background-header {
+    background-image: url('../img/background-header.jpg');
+    height: 70vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.background-header::before {
+    content: "";
+    position: absolute;
+    height: 70vh;
+    width: 50%;
+    background-color: rgba(217, 217, 217, .5);
+}
+
+.menu {
+    background-color: #260209;
+}
+
+.navbar-custom,
+.navbar {
+    background-color: #260209;
+}
+
+.navbar-brand img {
+    height: 100%;
+    max-height: 6rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6.5rem;
+}
+
+.logo {
+    flex-basis: 5%;
+}
+
+.navbar a {
+    color: #D9D9D9;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #D9184B;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 5rem;
+}
+
+.title-header {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    color: #260209;
+}
+
+.title-header h1 {
+    font-size: 5rem;
+    margin: 0;
+    padding: .5rem;
+}
+
+.title-header h2 {
+    margin: 0;
+}
+
+.navbar-nav .nav-link.active {
+    color: #D9184B;
+}
+
+.title {
+    text-align: center;
+    margin: 5rem 0;
+    font-size: 4.5rem;
+}
+
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.card {
+    background-color: #D9D9D9;
+    height: 65rem;
+    border-width: .1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 2rem;
+    flex-basis: calc(33.333% - 4rem);
+}
+
+.card-img img {
+    min-height: 40rem;
+}
+
+.card-body {
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-title h4 {
+    margin: .5rem;
+    font-size: 3rem;
+    font-weight: 10;
+    text-align: center;
+}
+
+.body-description {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.body-description p {
+    margin-bottom: .8rem;
+    margin-top: 0;
+}
+
+.body-description p:last-child {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.artist {
+    font-size: 2.2rem;
+}
+
+.prize {
+    padding-top: 1rem;
+    font-size: 2.3rem;
+    color: #A6032F;
+}
+
+.btn {
+    padding: 1.3rem;
+    border: solid;
+    color: #D9D9D9;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+}
+
+.btn-red {
+    background-color: #D9184B;
+}
