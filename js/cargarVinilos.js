@@ -3,6 +3,11 @@ const bodyAlbums = document.querySelector('#albums');
 bodyAlbums.innerHTML = '';
 function loadContent() {
     const vinyls = JSON.parse(localStorage.getItem('vinyls')) || [];
+    if(vinyls.length === 0){
+        bodyAlbums.innerHTML = `<h4>No hay vinilos aun</h4>`
+        return;
+    }
+
     vinyls.forEach(function (element) {
         bodyAlbums.innerHTML += `<div class="card">
                                     <div class="card-img">

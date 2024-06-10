@@ -1,20 +1,26 @@
 console.log('Conectando list.js')
 const bodyTabla = document.querySelector('#vinylTable tbody');
-function loadVinyls(){
+
+function loadVinyls() {
+    bodyTabla.innerHTML = '';
     const vinyls = JSON.parse(localStorage.getItem('vinyls')) || [];
-    console.log(vinyls);
-    vinyls.forEach(function(element) {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${element.title}</td>
+    if (vinyls.length === 0) {
+        bodyTabla.innerHTML = 'No hay vinilos aun';
+    }
+    else {
+        vinyls.forEach(function (element, indice) {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${element.title}</td>
                         <td>${element.artist}</td>
                         <td>${element.description}</td>
                         <td>${element.price}</td>
                         <td><img src="${element.image}" style="width:100px; height:auto;"></td>
                         <td>
-                            <a href="#">Eliminar</a>
+                            <a class="btn btn-danger" onclick="deleteVinyl(${indice})"><i class="bi bi-trash3"></i></a>
                             <a href="#">Editar</a>
                         </td>`;
-        bodyTabla.appendChild(row);
-    });
+            bodyTabla.appendChild(row);
+        });
+    }
 }
 window.addEventListener('load', loadVinyls);
