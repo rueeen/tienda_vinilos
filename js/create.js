@@ -2,7 +2,7 @@ console.log("Conectando formulario con js");
 
 const formulario = document.getElementById('vinylForm');
 
-formulario.addEventListener('submit', function(e){
+formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const title = document.getElementById('title').value;
@@ -13,13 +13,13 @@ formulario.addEventListener('submit', function(e){
 
     const reader = new FileReader() // Instancia de un objeto que permite cargar archivos
 
-    reader.onload = function() {
+    reader.onload = function () {
         const newVinyl = {
             title: title,
-            artist: artist, 
+            artist: artist,
             description: description,
-            price:price,
-            image:reader.result
+            price: price,
+            image: reader.result
         };
 
         const vinyls = JSON.parse(localStorage.getItem('vinyls')) || [];
@@ -28,12 +28,16 @@ formulario.addEventListener('submit', function(e){
 
         localStorage.setItem('vinyls', JSON.stringify(vinyls));
 
-        alert('Se agrego vinilo!');
+        Swal.fire({
+            title: "Agregado!",
+            text: `Se agrego vinilo ${title}`,
+            icon: "success"
+        });
 
         setTimeout(() => {
             window.location.href = 'list.html';
         }, 3000);
-        
+
     }
 
     reader.readAsDataURL(image.files[0]);

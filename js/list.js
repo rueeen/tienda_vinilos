@@ -17,7 +17,7 @@ function loadVinyls() {
                         <td><img src="${element.image}" style="width:100px; height:auto;"></td>
                         <td>
                             <a class="btn btn-danger" onclick="deleteVinyl(${indice})"><i class="bi bi-trash3"></i></a>
-                            <a href="#">Editar</a>
+                            <a class="btn btn-warning" href="editForm.html?title=${element.title}"><i class="bi bi-pencil-square"></i></a>
                         </td>`;
             bodyTabla.appendChild(row);
         });
